@@ -77,6 +77,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+  .state('tab.sensor-detail', {
+      url: '/sensors/:devid',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/sensor-detail.html',
+          controller: 'SensorDetailCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',
