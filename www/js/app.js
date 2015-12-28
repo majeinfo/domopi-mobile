@@ -68,6 +68,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+  .state('tab.sensors', {
+      url: '/sensors',
+      views: {
+        'tab-sensors': {
+          templateUrl: 'templates/tab-sensors.html',
+          controller: 'SensorsCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

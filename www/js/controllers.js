@@ -21,6 +21,13 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('SensorsCtrl', function($scope, Sensors) {
+  $scope.sensors = Sensors.all();
+  $scope.remove = function(sensor) {
+    Sensors.remove(sensor);
+  };
+})
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
