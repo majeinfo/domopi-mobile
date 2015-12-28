@@ -12,5 +12,11 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+    <div class="vertical-center-container" ng-show="!sensors.length">
+      <div class="vertical-center text-center">
+      <h1><i class="icon ion-heart-broken assertive"></i></h1>
+      <p>No sensor found.</p>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
