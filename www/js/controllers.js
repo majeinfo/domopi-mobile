@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
   };
 })
 .controller('SensorDetailCtrl', function($scope, $stateParams, Sensors) {
-  $scope.sensor = Sensors.get($stateParams.devid);
+  $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
 })
 
 .controller('AccountCtrl', function($scope) {

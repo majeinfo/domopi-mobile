@@ -1,7 +1,7 @@
 <ion-view view-title="Sensors">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sensor in sensors" type="item-text-wrap" href="#/tab/sensors/{{sensor.devid}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sensor in sensors" type="item-text-wrap" href="#/tab/sensors/{{sensor.devid}}/{{sensor.instid}}/{{sensor.sid}}">
         <img ng-src="">
         <h2>{{sensor.devid}}</h2>
         <p>{{sensor.deviceType}}</p>

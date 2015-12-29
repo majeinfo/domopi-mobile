@@ -27,12 +27,12 @@ angular.module('starter')
       sensors.splice(sensors.indexOf(sensor), 1);
     };
 
-    this.get = function(sensorId) {
+    this.get = function(devid, instid, sid) {
       //console.log('get : '+ sensorId + ' length ' + sensors.length);
       for (var i = 0; i < sensors.length; i++) {
         //console.log(sensors[i]);
         //ajouter test sur le deviceType aussi.
-        if (sensors[i].devid === (sensorId)) {
+        if (sensors[i].devid === (devid) && sensors[i].instid === (instid) && sensors[i].sid === (sid)) {
           //console.log('fond : '+ sensorId);
           return sensors[i];
         }
