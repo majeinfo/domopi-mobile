@@ -3,6 +3,11 @@ angular.module('starter')
 .controller('SensorsCtrl', function($scope, Sensors) {
   $scope.sensors = Sensors.all();
   console.log($scope.sensors);
+  $scope.$on('$ionicView.enter', function(e) {
+    console.log('updated');
+    $scope.sensors = Sensors.update();
+  });
+
 
   $scope.sendcmd = function(sensor, cmd) {
     console.log(cmd);
