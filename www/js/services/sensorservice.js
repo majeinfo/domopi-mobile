@@ -54,13 +54,20 @@ angular.module('starter')
     };
 
     this.cmd = function(devid, instid, sid, cmd) {
-      command = $http.get(rpiws_endpoint + "/sensors/command", { params:
+/*      command = $http.get(rpiws_endpoint + "/sensors/command", { params:
         {
           "devid": devid,
           "instid": instid,
           "sid": sid,
           "command": cmd
         } })
+      .error(function(data) {
+          console.log('error');
+          sensors = sample_data.data;
+          console.log(sensors);
+      });
+*/
+      command = $http.get(rpiws_endpoint + "/sensors/command/" + devid + '/' + instid + '/' + sid + '/' + cmd)
       .error(function(data) {
           console.log('error');
           sensors = sample_data.data;
