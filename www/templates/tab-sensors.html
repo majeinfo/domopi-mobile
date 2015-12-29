@@ -7,6 +7,9 @@
         <p>{{sensor.deviceType}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
+        <ion-option-button class="button" ng-click="sendcmd(sensor, (sensor.metrics.level == 'on' ? 'off' : 'on'))" ng-show="sensor.deviceType == 'sensorBinary'">
+          {{sensor.metrics.level}}
+        </ion-option-button>
         <ion-option-button class="button-assertive" ng-click="remove(sensor)">
           Delete
         </ion-option-button>

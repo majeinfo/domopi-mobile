@@ -14,11 +14,10 @@ angular.module('starter')
           console.log('error');
           sensors = sample_data.data;
           console.log(sensors);
-          //alert("ERROR");
 
           return sample_data.data;
       });
-      console.log('return');
+      // ajouter test data.status == 'ok'
       sensors = sample_data.data;
       return sensors;
     };
@@ -28,16 +27,35 @@ angular.module('starter')
     };
 
     this.get = function(devid, instid, sid) {
-      //console.log('get : '+ sensorId + ' length ' + sensors.length);
       for (var i = 0; i < sensors.length; i++) {
-        //console.log(sensors[i]);
-        //ajouter test sur le deviceType aussi.
         if (sensors[i].devid === (devid) && sensors[i].instid === (instid) && sensors[i].sid === (sid)) {
-          //console.log('fond : '+ sensorId);
           return sensors[i];
         }
       }
       return null;
+    };
+
+    this.cmd = function(devid, instid, sid, cmd) {
+      command = $http.get("http://localhost:3000/sensors/command", { params:
+        {
+          "devid": devid,
+          "instid": instid,
+          "sid": sid,
+          "command": cmd
+        } })
+      .error(function(data) {
+          console.log('error');
+          sensors = sample_data.data;
+          console.log(sensors);
+      });
+      for (var i = 0; i < sensors.length; i++) {
+        if (sensors[i].devid === (devid) && sensors[i].instid === (instid) && sensors[i].sid === (sid)) {
+          sensors[i].metrics.level = cmd;
+          //console.log(sensors[i]);
+        }
+      }
+      return null;
+
     };
 
 });
