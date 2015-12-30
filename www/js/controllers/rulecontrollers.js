@@ -24,6 +24,16 @@ angular.module('starter')
 })
 .controller('RuleDetailCtrl', function($scope, $stateParams, Rules) {
   console.log('params: ' + $stateParams.ruleDescription);
-  $scope.rule = Rules.get($stateParams.ruleDescription);
+  var rules = Rules.get($stateParams.ruleDescription);
+  rules.sensors = [];
+  rules.conditions.forEach( function(element, index, array){
+    console.log('test');
+    console.log(element);
+    sensor = Rules.getconditionsensor(element.devid, element.instid, element.sid);
+    rules.sensors.push(sensor);
+    console.log(sensor);
+  });
+  console.log(rules);
+  $scope.rule = rules;
 });
 
