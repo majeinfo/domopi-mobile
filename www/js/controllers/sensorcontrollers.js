@@ -5,6 +5,9 @@ angular.module('starter')
   $scope.$on('$ionicView.enter', function(e) {
     Sensors.all().success( function(response){
       console.log('callback');
+      if (response.status == 'ok'){
+        $scope.sensors = response.data;
+      }
     });
     console.log('updated');
     $scope.sensors = Sensors.update();
