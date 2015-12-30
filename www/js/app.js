@@ -69,6 +69,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+  .state('tab.rules', {
+      url: '/rules',
+      views: {
+        'tab-rules': {
+          templateUrl: 'templates/tab-rules.html',
+          controller: 'RulesCtrl'
+        }
+      }
+    })
+  .state('tab.rule-detail', {
+      url: '/rules',
+      views: {
+        'tab-rules': {
+          templateUrl: 'templates/rule-detail.html',
+          controller: 'RuleDetailCtrl'
+        }
+      }
+    })
+
   .state('tab.sensors', {
       url: '/sensors',
       views: {
