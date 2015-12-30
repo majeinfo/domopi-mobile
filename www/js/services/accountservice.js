@@ -1,14 +1,15 @@
 angular.module('starter')
 
 .service('Account', function($http) {
-  var rpiws_endpoint = "http://localhost:3000";
+
   var settings = {
     enableFriends: true,
     rpiwsurl: 'http://localhost:3000'
   }
   this.ping = function(url) {
-    console.log('pinging webservice : ' + url + '/controllers/ping');
-    data = $http.get(url + "/controllers/ping")
+    var rand = Math.floor((Math.random()*6)+1);
+    console.log('pinging webservice : ' + url + '/controllers/ping/' + rand);
+    data = $http.get(url + "/controllers/ping/" + rand)
       .success(function(data) {
         if (data.status == 'ok') {
           console.log('status ok');
