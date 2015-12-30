@@ -31,7 +31,7 @@ $ ionic serve
 
 ### Run on device iOS / Android
 
-You have to install the desire platform example to add Android platform
+You have to install the desired platform example to add Android platform
 
 ```sh
 $ ionic platform add android
