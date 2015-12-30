@@ -11,10 +11,7 @@ angular.module('starter')
        console.log('closing popup');
      });
    };
-  $scope.settings = {
-    enableFriends: true,
-    rpiwsurl: 'http://localhost:3000'
-  };
+  $scope.settings = Account.getsettings();
   $scope.check = function(url) {
     var message = '', title = 'Web service check';
 

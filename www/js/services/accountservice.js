@@ -2,6 +2,10 @@ angular.module('starter')
 
 .service('Account', function($http) {
   var rpiws_endpoint = "http://localhost:3000";
+  var settings = {
+    enableFriends: true,
+    rpiwsurl: 'http://localhost:3000'
+  }
   this.ping = function(url) {
     console.log('pinging webservice : ' + url + '/controllers/ping');
     data = $http.get(url + "/controllers/ping")
@@ -26,5 +30,9 @@ angular.module('starter')
     }
 
     };
+
+  this.getsettings = function() {
+    return settings;
+  };
 
 });
