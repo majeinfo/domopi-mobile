@@ -26,7 +26,7 @@ $ sudo npm install -g ionic
 ### Run in browser
 
 ```sh
-$ sudo ionic serve
+$ ionic serve
 ```
 
 ### Run on device iOS / Android
@@ -34,12 +34,12 @@ $ sudo ionic serve
 You have to install the desire platform example to add Android platform
 
 ```sh
-$ sudo ionic platform add android
+$ ionic platform add android
 ```
 
 Then you can run the application with
 
 ```sh
-$ sudo ionic run ios
+$ ionic run ios
 ```
 
