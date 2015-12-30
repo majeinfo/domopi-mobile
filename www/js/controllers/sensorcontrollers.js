@@ -17,7 +17,9 @@ angular.module('starter')
 
   $scope.sendcmd = function(sensor, cmd) {
     console.log(cmd);
-    Sensors.cmd(sensor.devid, sensor.instid, sensor.sid, cmd);
+    Sensors.cmd(sensor.devid, sensor.instid, sensor.sid, cmd).success( function(response){
+      console.log('command successfully executed');
+    });
   };
 
   $scope.remove = function(sensor) {
