@@ -4,11 +4,11 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{rule.id}}">
+<ion-view view-title="{{rule.description}}">
   <ion-content class="padding">
-  <img ng-src="{{rule.face}}" style="width: 64px; height: 64px">
+  
     <p>
-      {{rule.deviceType}} {{rule.sid}}
+      {{rule.description}}
     </p>
       <ion-list>
         <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="(key, value) in rule" type="item-text-wrap" >

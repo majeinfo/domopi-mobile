@@ -79,7 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
   .state('tab.rule-detail', {
-      url: '/rules',
+      url: '/rules/:ruleDescription',
       views: {
         'tab-rules': {
           templateUrl: 'templates/rule-detail.html',

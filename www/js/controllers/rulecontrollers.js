@@ -10,10 +10,11 @@ angular.module('starter')
   //});
 
   Rules.all().success( function(response) {
-    console.log('callback');
+    console.log('callback rule');
+    console.log(response);
     if (response.status == 'ok'){
-      $scope.rules = response.data;
-      Rules.set(response.data);
+      $scope.rules = response.rules;
+      Rules.set(response.rules);
     }
   });
 
@@ -22,6 +23,7 @@ angular.module('starter')
   };
 })
 .controller('RuleDetailCtrl', function($scope, $stateParams, Rules) {
-  $scope.rule = Rules.get($stateParams.id);
+  console.log('params: ' + $stateParams.ruleDescription);
+  $scope.rule = Rules.get($stateParams.ruleDescription);
 });
 

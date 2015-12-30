@@ -27,9 +27,12 @@ angular.module('starter')
       rules.splice(rules.indexOf(rule), 1);
     };
 
-    this.get = function(id) {
+    this.get = function(description) {
+      console.log('looking for rule: ' + description)
       for (var i = 0; i < rules.length; i++) {
-        if (rules[i].id === (id)) {
+        console.log(rules[i])
+        if (rules[i]['description'] === (description)) {
+          console.log(rules[i])
           return rules[i];
         }
       }
