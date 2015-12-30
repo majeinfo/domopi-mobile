@@ -4,13 +4,15 @@ angular.module('starter')
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
+  var sample = {"status":"ok","data":[{"devid":"3","instid":"0","sid":"0","deviceType":"buttonControl","metrics":{"icon":"","title":"Button Chromatic Technologies 0-0","level":"on","change":""},"is_level_number":false,"level":0,"on_off":true,"change":""},{"devid":"2","instid":"0","sid":"37","deviceType":"switchBinary","metrics":{"icon":"switch","title":"Switch 2-0 Everspring","level":"off"},"is_level_number":false,"level":0,"on_off":false}]};
   var sensors = [];
   var settings = Account.getsettings();
   this.all = function() {
     console.log('getting sensors infos from: ' + settings.rpiwsurl);
     var data = $http.get(settings.rpiwsurl + "/sensors/list")
       .error(function() {
-          console.log('error');
+          console.log('error getting sensors list');
+          sensors = sample.data;
       });
       // ajouter test data.status == 'ok'
     return data;
@@ -40,9 +42,7 @@ angular.module('starter')
     this.cmd = function(devid, instid, sid, cmd) {
       command = $http.get(settings.rpiwsurl + "/sensors/command/" + devid + '/' + instid + '/' + sid + '/' + cmd)
       .error(function(data) {
-          console.log('error');
-          sensors = sample_data.data;
-          console.log(sensors);
+          console.log('error while sending command');
       });
       for (var i = 0; i < sensors.length; i++) {
         if (sensors[i].devid === (devid) && sensors[i].instid === (instid) && sensors[i].sid === (sid)) {
@@ -50,7 +50,7 @@ angular.module('starter')
           //console.log(sensors[i]);
         }
       }
-      return null;
+      return command;
 
     };
 
