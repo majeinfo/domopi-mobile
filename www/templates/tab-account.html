@@ -1,6 +1,15 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" ng-model="settings.rpiwsurl" placeholder="Web service url">
+        </label>
+        <button class="button button-small" ng-click="check(settings.rpiwsurl)">
+          Check
+        </button>
+      </div>
+
     <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle>
