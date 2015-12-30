@@ -19,7 +19,7 @@ angular.module('starter')
     Account.ping(url).success( function(response) {
       console.log(response);
       data = response;
-      $scope.message = (data.status == 'ok') ? 'Ok the web service url was successfully checked.' : 'Sorry but we can not contact the web service.'
+      $scope.message = (data.status == 'ok') ? 'Ok the web service url was successfully checked. Version : ' + data.doVersion : 'Sorry but we can not contact the web service.'
 
     });
     $scope.showAlert(title, $scope.message);
