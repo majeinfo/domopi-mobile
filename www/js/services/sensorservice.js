@@ -16,6 +16,10 @@ angular.module('starter')
     return data;
     };
 
+    this.set = function(data) {
+      sensors = data;
+    };
+
     this.update = function() {
       return sensors;
     };

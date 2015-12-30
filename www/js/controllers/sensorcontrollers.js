@@ -7,6 +7,7 @@ angular.module('starter')
       console.log('callback');
       if (response.status == 'ok'){
         $scope.sensors = response.data;
+        Sensors.set(response.data);
       }
     });
     console.log('updated');
