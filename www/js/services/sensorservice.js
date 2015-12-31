@@ -9,7 +9,7 @@ angular.module('domopi')
   var settings = Account.getsettings();
   this.all = function() {
     console.log('getting sensors infos from: ' + settings.rpiwsurl);
-    var data = $http.get(settings.rpiwsurl + "/sensors/liste")
+    var data = $http.get(settings.rpiwsurl + "/sensors/list")
       .error(function(data) {
           console.log('error getting sensors list');
           sensors = sample.data;
