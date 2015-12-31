@@ -6,19 +6,36 @@
 -->
 <ion-view view-title="{{rule.description}}">
   <ion-content class="padding">
-  
+
     <p>
-      {{rule.description}}
+      Rule Conditions
     </p>
       <ion-list>
-        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="(key, value) in rule" type="item-text-wrap" >
-          <h2>{{key}}</h2>
-          <p>{{value}}</p>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="condition in rule.conditions" type="item-text-wrap" >
+          <h2>{{condition.devid}} {{condition.instid}} {{condition.sid}}</h2>
+          <p>{{condition.condtype}} {{condition.testtype}} {{condition.value}}</p>
           <i class="icon ion-chevron-right icon-accessory"></i>
 
         </ion-item>
       </ion-list>
+    <p>
+      Rule Actions
+    </p>
+      <ion-list>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="action in rule.actions" type="item-text-wrap" >
 
+          <div "emailcmd" ng-show="action.actiontype == 'emailcmd'">
+            <h2>Send email</h2>
+            <p>to: {{action.email}} subject: {{action.subject}} message: {{action.content}}</p>
+          </div>
+          <div "sensorcmd" ng-show="action.actiontype == 'sensorcmd'">
+            <h2>Send Command</h2>
+            <p>to: {{action.sensorname}} command: {{action.value}}</p>
+          </div>
+
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </ion-list>
 
   </ion-content>
 </ion-view>

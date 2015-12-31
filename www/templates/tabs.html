@@ -16,12 +16,12 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Rules Tab -->
-  <ion-tab title="Rules" icon-off="ion-levels" icon-on="ion-levels" href="#/tab/rules">
+  <ion-tab title="Rules" icon-off="ion-levels" icon-on="ion-levels" badge="rules.length" badge-style="badge-assertive" href="#/tab/rules" ng-controller="RulesCtrl">
     <ion-nav-view name="tab-rules"></ion-nav-view>
   </ion-tab>
 
   <!-- Sensors Tab -->
-  <ion-tab title="Sensors" icon-off="ion-radio-waves" icon-on="ion-radio-waves" href="#/tab/sensors">
+  <ion-tab title="Sensors" icon-off="ion-radio-waves" badge="sensors.length" badge-style="badge-assertive" icon-on="ion-radio-waves" href="#/tab/sensors" ng-controller="SensorsCtrl">
     <ion-nav-view name="tab-sensors"></ion-nav-view>
   </ion-tab>
 

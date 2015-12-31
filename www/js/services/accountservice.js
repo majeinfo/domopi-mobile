@@ -4,7 +4,7 @@ angular.module('starter')
 
   var settings = {
     enableFriends: true,
-    rpiwsurl: 'http://localhost:3000'
+    rpiwsurl: 'http://10.31.14.38:3000'
   }
   this.ping = function(url) {
     var rand = Math.floor((Math.random()*6)+1);
