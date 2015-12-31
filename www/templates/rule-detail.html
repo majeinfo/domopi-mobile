@@ -7,35 +7,46 @@
 <ion-view view-title="{{rule.description}}">
   <ion-content class="padding">
 
-    <p>
-      Rule Conditions
-    </p>
-      <ion-list>
-        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="condition in rule.conditions" type="item-text-wrap" >
-          <h2>{{condition.devid}} {{condition.instid}} {{condition.sid}}</h2>
-          <p>{{condition.condtype}} {{condition.testtype}} {{condition.value}}</p>
-          <i class="icon ion-chevron-right icon-accessory"></i>
+    <ion-list>
+      <ion-item class="item-divider">
+        Rule Conditions
+      </ion-item>
 
-        </ion-item>
-      </ion-list>
-    <p>
-      Rule Actions
-    </p>
-      <ion-list>
-        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="action in rule.actions" type="item-text-wrap" >
+      <ion-item class="item-remove-animate" ng-repeat="condition in rule.conditions" type="item-text-wrap" >
+        <h2>{{condition.sensorname}}</h2>
+        <p>{{condition.condtype}} {{condition.testtype}} {{condition.value}}</p>
+      </ion-item>
 
-          <div "emailcmd" ng-show="action.actiontype == 'emailcmd'">
-            <h2>Send email</h2>
-            <p>to: {{action.email}} subject: {{action.subject}} message: {{action.content}}</p>
-          </div>
-          <div "sensorcmd" ng-show="action.actiontype == 'sensorcmd'">
-            <h2>Send Command</h2>
-            <p>to: {{action.sensorname}} command: {{action.value}}</p>
-          </div>
+      <ion-item class="item-divider">
+        Rule Actions
+      </ion-item>
+      <ion-item class="item-remove-animate" ng-repeat="action in rule.actions" type="item-text-wrap" >
 
-          <i class="icon ion-chevron-right icon-accessory"></i>
-        </ion-item>
-      </ion-list>
+        <div "emailcmd" ng-show="action.actiontype == 'emailcmd'">
+          <h2 class="item item-icon-left">Send email<i class="icon ion-email"></i></h2>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Email</span><input type="text" value="{{action.email}}">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Subject</span><input type="text" value="{{action.subject}}">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Message</span><input type="textarea" value="{{action.content}}">
+          </label>
+        </div>
 
+        <div "sensorcmd" class="item item-icon-left" ng-show="action.actiontype == 'sensorcmd'">
+
+          <h2 class="item item-icon-left">Send Command<i class="icon ion-radio-waves"></i></h2>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Sensor</span><input type="text" value="{{action.sensorname}}">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Command</span><input type="text" value="{{action.value}}">
+          </label>
+
+        </div>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

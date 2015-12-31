@@ -1,7 +1,6 @@
-angular.module('starter')
+angular.module('domopi')
 
 .service('Rules', function($http, $stateParams, Account, Sensors) {
-  var sample = {"status":"ok","data":[{"devid":"3","instid":"0","sid":"0","deviceType":"buttonControl","metrics":{"icon":"","title":"Button Chromatic Technologies 0-0","level":"on","change":""},"is_level_number":false,"level":0,"on_off":true,"change":""},{"devid":"2","instid":"0","sid":"37","deviceType":"switchBinary","metrics":{"icon":"switch","title":"Switch 2-0 Everspring","level":"off"},"is_level_number":false,"level":0,"on_off":false}]};
   var rules = [];
   var settings = Account.getsettings();
   this.all = function() {
@@ -9,7 +8,6 @@ angular.module('starter')
     var data = $http.get(settings.rpiwsurl + "/automation/rules")
       .error(function() {
           console.log('error getting rules list');
-          sensors = sample.data;
       });
       // ajouter test data.status == 'ok'
     return data;

@@ -1,4 +1,4 @@
-angular.module('starter')
+angular.module('domopi')
 
 .service('Account', function($http) {
 

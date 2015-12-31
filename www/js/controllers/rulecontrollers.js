@@ -1,4 +1,4 @@
-angular.module('starter')
+angular.module('domopi')
 
 .controller('RulesCtrl', function($scope, Rules) {
   // With the new view caching in Ionic, Controllers are only called
@@ -31,7 +31,8 @@ angular.module('starter')
     console.log(element);
     sensor = Rules.getconditionsensor(element.devid, element.instid, element.sid);
     rules.sensors.push(sensor);
-    console.log(sensor);
+    element.sensorname = sensor.metrics.title;
+    console.log(element);
   });
   console.log(rules);
   $scope.rule = rules;

@@ -1,15 +1,16 @@
-angular.module('starter')
+angular.module('domopi')
 
 .controller('SensorsCtrl', function($scope, Sensors) {
   console.log($scope.sensors);
+  Sensors.all().success( function(response){
+    console.log('callback sensor');
+    if (response.status == 'ok'){
+      $scope.sensors = response.data;
+      Sensors.set(response.data);
+    }
+  });
+  //utile avec les données de test sinon le $scope.sensors n'est pas mis à jour
   $scope.$on('$ionicView.enter', function(e) {
-    Sensors.all().success( function(response){
-      console.log('callback');
-      if (response.status == 'ok'){
-        $scope.sensors = response.data;
-        Sensors.set(response.data);
-      }
-    });
     console.log('updated');
     $scope.sensors = Sensors.update();
   });

@@ -1,4 +1,4 @@
-angular.module('starter')
+angular.module('domopi')
 
 .controller('AccountCtrl', function($scope, $ionicPopup, $stateParams, Account) {
   $scope.message = 'SorryZZZ but we can not contact the web service.'
