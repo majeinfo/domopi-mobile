@@ -3,7 +3,9 @@ angular.module('domopi')
 .service('Account', function($http) {
 
   var settings = {
-    enableFriends: true,
+    enableAlerts: true,
+    enableHealth: true,
+    enableUpcoming: true,
     rpiwsurl: 'http://localhost:3000'
   }
   this.ping = function(url) {

@@ -1,6 +1,7 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
+      <div class="item item-divider">Remote server url</div>
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
           <input type="text" ng-model="settings.rpiwsurl" placeholder="Web service url">
@@ -9,9 +10,15 @@
           Check
         </button>
       </div>
-
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
+    <div class="item item-divider">Dashboard settings</div>
+    <ion-toggle  ng-model="settings.enableAlerts">
+        Enable Recent Alerts
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.enableHealth">
+        Enable Health
+    </ion-toggle>
+    <ion-toggle  ng-model="settings.enableUpcoming">
+        Enable Upcoming
     </ion-toggle>
     </ion-list>
   </ion-content>

@@ -1,6 +1,7 @@
 angular.module('domopi.controllers', ['chart.js'])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, Account) {
+  $scope.settings = Account.getsettings();
   $scope.graph = {};
   $scope.graph.data = [
     //Awake
