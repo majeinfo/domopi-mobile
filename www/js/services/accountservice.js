@@ -1,12 +1,20 @@
 angular.module('domopi')
 
-.service('Account', function($http) {
+.service('Account', function($http, localstorage) {
 
   var settings = {
     enableAlerts: true,
     enableHealth: true,
     enableUpcoming: true,
     rpiwsurl: 'http://localhost:3000'
+  }
+  console.log('before');
+  console.log(localstorage.getObject('settings'));
+  if (localstorage.getObject('settings') === "{}"){
+    localstorage.setObject('settings', settings)
+    console.log('after');
+    console.log(localstorage.getObject('settings'));
+
   }
   this.ping = function(url) {
     var rand = Math.floor((Math.random()*6)+1);
@@ -18,9 +26,19 @@ angular.module('domopi')
     //console.log(data);
     return data;
     };
+  this.setsettings = function(settings, val) {
+    settings[settings] = val;
+    console.log('update settings');
+    console.log(settings);
+    localstorage.setObject('settings', settings)
+    console.log('update');
+    console.log(localstorage.getObject('settings'));
 
+  };
   this.getsettings = function() {
-    return settings;
+    var storedsettings = localstorage.getObject('settings')
+
+    return (localstorage.getObject('settings') === "{}") ? storedsettings : settings;
   };
 
 });

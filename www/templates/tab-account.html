@@ -11,13 +11,13 @@
         </button>
       </div>
     <div class="item item-divider">Dashboard settings</div>
-    <ion-toggle  ng-model="settings.enableAlerts">
+    <ion-toggle  ng-model="settings.enableAlerts" ng-click="setsettings('enableAlerts', settings.enableAlerts)">
         Enable Recent Alerts
     </ion-toggle>
-    <ion-toggle  ng-model="settings.enableHealth">
+    <ion-toggle  ng-model="settings.enableHealth" ng-click="setsettings('enableHealth', settings.enableHealth)">
         Enable Health
     </ion-toggle>
-    <ion-toggle  ng-model="settings.enableUpcoming">
+    <ion-toggle  ng-model="settings.enableUpcoming" ng-click="setsettings('enableUpcoming', settings.enableUpcoming)">
         Enable Upcoming
     </ion-toggle>
     </ion-list>
