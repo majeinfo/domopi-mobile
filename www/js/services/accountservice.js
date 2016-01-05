@@ -26,8 +26,8 @@ angular.module('domopi')
     //console.log(data);
     return data;
     };
-  this.setsettings = function(settings, val) {
-    settings[settings] = val;
+  this.setsettings = function(key, val) {
+    settings[key] = val;
     console.log('update settings');
     console.log(settings);
     localstorage.setObject('settings', settings)
