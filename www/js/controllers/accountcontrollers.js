@@ -23,9 +23,10 @@ angular.module('domopi')
 
     });
     $scope.showAlert(title, $scope.message);
+   };
   $scope.setsettings = function() {
+    console.log('set settings called')
     Account.setsettings();
-  }
   };
 
 });
