@@ -1,4 +1,13 @@
 <ion-view view-title="Rules">
+  <ion-nav-bar>
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon ion-ios-plus-empty" href="#/form" ng-click=""></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="rule in rules" type="item-text-wrap" href="#/tab/rules/{{rule.description}}">

@@ -15,6 +15,19 @@ angular.module('domopi')
     Rules.remove(rule);
   };
 })
+.controller('formController', function($scope, Rules) {
+    
+    // we will store all of our form data in this object
+    $scope.formData = {};
+    $scope.showModalAddRule = function() {
+
+    };
+    // function to process the form
+    $scope.processForm = function() {
+        alert('awesome!');
+    };
+    
+})
 .controller('RuleDetailCtrl', function($scope, $stateParams, Rules) {
   console.log('params: ' + $stateParams.ruleDescription);
   var rules = Rules.get($stateParams.ruleDescription);
