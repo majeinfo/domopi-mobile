@@ -23,7 +23,9 @@ angular.module('domopi')
 
     });
     $scope.showAlert(title, $scope.message);
-
+  $scope.setsettings = function() {
+    Account.setsettings();
+  }
   };
 
 });
