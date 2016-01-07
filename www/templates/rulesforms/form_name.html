@@ -1,14 +1,15 @@
 <!-- form_name.html -->
-<div class="list form-group">
-    <label class="item item-input item-stacked-label" for="name"><span class="input-label">Description</span>
-    <input type="text" class="form-control" name="description" ng-model="formData.description" placeholder="enter a description" required>
-    </label>
-    
-</div>
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label">Enter a describtion</span>
+    <input type="text" name="description" ng-model="formData.description" required>
+  </label>
+</div>    
+
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="form.interests" class="btn btn-block btn-info">
+    <a ui-sref="form.condtype" class="btn btn-block btn-info">
     Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
     </a>
 </div>
