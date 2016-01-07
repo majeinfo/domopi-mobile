@@ -74,23 +74,19 @@ angular.module('domopi', ['ionic', 'domopi.controllers', 'domopi.services'])
       templateUrl: 'templates/rulesforms/form.html',
       controller: 'formController'
   })
-  
-  // nested states 
+
+  // nested states
   // each of these sections will have their own view
   // url will be nested (/form/profile)
-  .state('form.profile', {
-      url: '/profile',
-      templateUrl: 'templates/rulesforms/form_name.html'
-  })
   .state('form.name', {
       url: '/profile',
       templateUrl: 'templates/rulesforms/form_name.html'
   })
-  
+
   // url will be /form/interests
-  .state('form.interests', {
+  .state('form.condtype', {
       url: '/interests',
-      templateUrl: 'templates/rulesforms/form_step2.html'
+      templateUrl: 'templates/rulesforms/form_condition.html'
   })
 
   .state('tab.sensors', {
@@ -111,7 +107,7 @@ angular.module('domopi', ['ionic', 'domopi.controllers', 'domopi.services'])
         }
       }
     })
-  
+
   // url will be /form/payment
   .state('form.payment', {
       url: '/payment',
