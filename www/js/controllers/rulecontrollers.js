@@ -16,7 +16,7 @@ angular.module('domopi')
   };
 })
 .controller('formController', function($scope, Rules) {
-    
+
     // we will store all of our form data in this object
     $scope.formData = {};
     $scope.actions = [];
@@ -24,21 +24,26 @@ angular.module('domopi')
     $scope.condition = {};
 
     $scope.showModalAddRule = function() {
+      return true;
     };
-    $scope.addcondition = function() {
-      //console.log($scope.condition)
+    $scope.addcondition = function(event) {
+      //prevent form posting
+      event.preventDefault();
       var errors = '';
       if ($scope.condition.condtype == 'thresholdcond'){
         var fields = ['testtype', 'value', 'condtype'];
         for (var i = 0; i < fields.length; i++) {
           if($scope.condition[fields[i]] == null){
             alert('error ' + fields[i]);
-            errors = errors + ' ' + fields[i];
+            errors = fields[i];
           }
         }
       }
-      if(errors != ''){
+      if (errors == ''){
         $scope.conditions.push($scope.condition);
+        alert('Condition successfully added')
+        $scope.condition = {};
+
       }
 
     };
@@ -46,7 +51,7 @@ angular.module('domopi')
     $scope.processForm = function() {
         alert('awesome!');
     };
-    
+
 })
 .controller('RuleDetailCtrl', function($scope, $stateParams, Rules) {
   console.log('params: ' + $stateParams.ruleDescription);

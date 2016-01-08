@@ -13,7 +13,7 @@
 <div class="item item-divider">
     Threshold condition settings
 </div>
-	<ion-list ng-show="condition.conditiontype == 'thresholdcond'">
+	<ion-list ng-show="condition.condtype == 'thresholdcond'">
 		<div class="list">
 
 		  <label class="item item-input item-select">
@@ -47,7 +47,7 @@
     Time condition settings
 </div>
 
-	<ion-list ng-show="condition.conditiontype == 'timecond'">
+	<ion-list ng-show="condition.condtype == 'timecond'">
 		<label class="item item-input">
 		<span class="input-label">Start Time</span>
 		<input type="text" name="description" ng-model="condition.starttime" placeholder="enter the start date">
@@ -69,8 +69,11 @@
 
 		</ion-list>
 	</ion-list>
-<button class="button button-block button-positive" ng-click="addcondition()"> Add condition</button>
+<button class="button button-block button-positive" ng-click="addcondition($event)"> Add condition</button>
 </div>
+    <pre>
+        {{ conditions }}
+    </pre>
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
@@ -80,6 +83,3 @@
 </div>
 </div>
 
-    <pre>
-        {{ conditions }}
-    </pre>
