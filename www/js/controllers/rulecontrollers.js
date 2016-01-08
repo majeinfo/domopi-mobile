@@ -38,6 +38,17 @@ angular.module('domopi')
             errors = fields[i];
           }
         }
+      }else if($scope.condition.condtype == 'timecond'){
+        var fields = ['starttime', 'endtime'];
+        for (var i = 0; i < fields.length; i++) {
+          if($scope.condition[fields[i]] == null){
+            alert('error ' + fields[i]);
+            errors = fields[i];
+          }
+        }
+
+      }else{
+        errors = 'please select a Condition type'
       }
       if (errors == ''){
         $scope.conditions.push($scope.condition);
