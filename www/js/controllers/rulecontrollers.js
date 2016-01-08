@@ -19,7 +19,27 @@ angular.module('domopi')
     
     // we will store all of our form data in this object
     $scope.formData = {};
+    $scope.actions = [];
+    $scope.conditions = [];
+    $scope.condition = {};
+
     $scope.showModalAddRule = function() {
+    };
+    $scope.addcondition = function() {
+      //console.log($scope.condition)
+      var errors = '';
+      if ($scope.condition.condtype == 'thresholdcond'){
+        var fields = ['testtype', 'value', 'condtype'];
+        for (var i = 0; i < fields.length; i++) {
+          if($scope.condition[fields[i]] == null){
+            alert('error ' + fields[i]);
+            errors = errors + ' ' + fields[i];
+          }
+        }
+      }
+      if(errors != ''){
+        $scope.conditions.push($scope.condition);
+      }
 
     };
     // function to process the form

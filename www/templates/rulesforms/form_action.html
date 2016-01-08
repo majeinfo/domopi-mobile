@@ -1,61 +1,75 @@
 <!-- form-action.html -->
 ACTION
 <div class="list">
+<div class="item item-divider">
+    Select a condition type
+</div>
 
-<ion-list>
-  <ion-radio ng-model="formData.conditiontype" ng-value="'thresholdcond'">Sensor Value Threshold</ion-radio>
-  <ion-radio ng-model="formData.conditiontype" ng-value="'timecond'">Time condition</ion-radio>
-  <ion-radio ng-model="formData.conditiontype" ng-value="'statuscond'">Sensor Status</ion-radio>
-</ion-list>
-
-<ion-list ng-show="formData.conditiontype == 'thresholdcond'">
-	<div class="list">
-
-	  <label class="item item-input item-select">
-	    <div class="input-label">
-	      Sensor Name
-	    </div>
-	    <select ng-model="formData.sensor_name">
-	      <option>Sensor 1</option>
-	      <option selected>Sensor 2</option>
-	      <option>Sensor 3</option>
-	    </select>
-	  </label>
-
-	</div>
-	<div class="list">
-	  <ion-radio ng-model="formData.testtype" ng-value="'>'">></ion-radio>
-	  <ion-radio ng-model="formData.testtype" ng-value="'=>'">=></ion-radio>
-	  <ion-radio ng-model="formData.testtype" ng-value="'<'"><</ion-radio>
-	  <ion-radio ng-model="formData.testtype" ng-value="'<='"><=</ion-radio>
-	  <ion-radio ng-model="formData.testtype" ng-value="'='">=</ion-radio>
-	  <ion-radio ng-model="formData.testtype" ng-value="'<>'"><></ion-radio>
-
-	</div>
-</ion-list>
-
-<ion-list ng-show="formData.conditiontype == 'timecond'">
-	<label class="item item-input">
-	<span class="input-label">Start Time</span>
-	<input type="text" name="description" ng-model="formData.starttime">
-	</label>
-	<label class="item item-input">
-	<span class="input-label">End Time</span>
-	<input type="text" name="description" ng-model="formData.endtime">
-	</label>
 	<ion-list>
+	  <ion-radio name="conditiontype" ng-model="formData.conditiontype" ng-value="'thresholdcond'">Sensor Value Threshold</ion-radio>
+	  <ion-radio name="conditiontype" ng-model="formData.conditiontype" ng-value="'timecond'">Time condition</ion-radio>
+	  <ion-radio name="conditiontype" ng-model="formData.conditiontype" ng-value="'statuscond'">Sensor Status</ion-radio>
+	</ion-list>
 
-	  <ion-checkbox ng-model="formData.alldays">Every day</ion-checkbox>
-	  <ion-checkbox ng-model="formData.monday">Monday</ion-checkbox>
-	  <ion-checkbox ng-model="formData.tuesday">Tuesday</ion-checkbox>
-	  <ion-checkbox ng-model="formData.wednesday">Wednesday</ion-checkbox>
-	  <ion-checkbox ng-model="formData.thursday">Thursday</ion-checkbox>
-	  <ion-checkbox ng-model="formData.friday">Friday</ion-checkbox>
-	  <ion-checkbox ng-model="formData.saturday">Saturday</ion-checkbox>
-	  <ion-checkbox ng-model="formData.sunday">Sunday</ion-checkbox>
+<div class="item item-divider">
+    Threshold condition settings
+</div>
+	<ion-list ng-show="formData.conditiontype == 'thresholdcond'">
+		<div class="list">
+
+		  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Sensor Name
+		    </div>
+		    <select ng-model="formData.sensor_name">
+		      <option>Sensor 1</option>
+		      <option selected>Sensor 2</option>
+		      <option>Sensor 3</option>
+		    </select>
+		  </label>
+
+		</div>
+		<div class="list">
+		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'>'">></ion-radio>
+		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'=>'">=></ion-radio>
+		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'<'"><</ion-radio>
+		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'<='"><=</ion-radio>
+		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'='">=</ion-radio>
+		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'<>'"><></ion-radio>
+
+		</div>
+		<label class="item item-input">
+		<span class="input-label">Value</span>
+		<input type="text" name="value" ng-model="formData.value" placeholder="enter the threshold value">
+		</label>
 
 	</ion-list>
-</ion-list>
+<div class="item item-divider">
+    Time condition settings
+</div>
+
+	<ion-list ng-show="formData.conditiontype == 'timecond'">
+		<label class="item item-input">
+		<span class="input-label">Start Time</span>
+		<input type="text" name="description" ng-model="formData.starttime" placeholder="enter the start date">
+		</label>
+		<label class="item item-input">
+		<span class="input-label">End Time</span>
+		<input type="text" name="description" ng-model="formData.endtime" placeholder="enter the end date">
+		</label>
+		<ion-list>
+
+		  <ion-checkbox ng-model="formData.alldays">Every day</ion-checkbox>
+		  <ion-checkbox ng-model="formData.monday">Monday</ion-checkbox>
+		  <ion-checkbox ng-model="formData.tuesday">Tuesday</ion-checkbox>
+		  <ion-checkbox ng-model="formData.wednesday">Wednesday</ion-checkbox>
+		  <ion-checkbox ng-model="formData.thursday">Thursday</ion-checkbox>
+		  <ion-checkbox ng-model="formData.friday">Friday</ion-checkbox>
+		  <ion-checkbox ng-model="formData.saturday">Saturday</ion-checkbox>
+		  <ion-checkbox ng-model="formData.sunday">Sunday</ion-checkbox>
+
+		</ion-list>
+	</ion-list>
 
 </div>
 
