@@ -95,6 +95,12 @@ angular.module('domopi', ['ionic', 'domopi.controllers', 'domopi.services'])
       templateUrl: 'templates/rulesforms/form_action.html'
   })
 
+  // form summary
+  .state('form.summary', {
+      url: '/summary',
+      templateUrl: 'templates/rulesforms/form_summary.html'
+  })
+
   .state('tab.sensors', {
       url: '/sensors',
       views: {

@@ -1,0 +1,33 @@
+<!-- form-summary.html -->
+
+<div class="list">
+<div class="item item-divider">
+    Please check your new rule settings below before posting it.
+</div>
+
+
+<div class="item item-divider">
+    rule Description
+</div>
+{{ruleData.description}}
+
+<div class="item item-divider">
+    rule Conditions list
+</div>
+    <ion-list>
+      <ion-item class="item-remove-animate " ng-repeat="cond in conditions" type="item-text-wrap">
+        {{cond}}
+      </ion-item>
+    </ion-list>
+
+<div class="item item-divider">
+    rule Actions list
+</div>
+    <ion-list>
+      <ion-item class="item-remove-animate " ng-repeat="action in actions" type="item-text-wrap">
+        {{action}}
+      </ion-item>
+    </ion-list>
+
+
+<button class="button button-block button-positive" ng-click="save($event)"> Save the new rule</button>

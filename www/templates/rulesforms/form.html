@@ -12,10 +12,8 @@
             <div id="status-buttons" class="text-center">
                 <a ui-sref-active="active" ui-sref=".name"><span>1</span> Name</a>
                 <a ui-sref-active="active" ui-sref=".condtype"><span>2</span> Condition</a>
-                <a ui-sref-active="active" ui-sref=".action"><span>4</span> Action</a>
-                <a ui-sref-active="active" ui-sref=".interests"><span>6</span> interests</a>
-                <a ui-sref-active="active" ui-sref=".payment"><span>7</span> Payment</a>
-                <a ui-sref-active="active" ui-sref=".payment"><span>8</span> Payment</a>
+                <a ui-sref-active="active" ui-sref=".action"><span>3</span> Action</a>
+                <a ui-sref-active="active" ui-sref=".summary"><span>4</span> Summary</a>
             </div>
         </div>
 
@@ -28,9 +26,9 @@
 
     </div>
 
-    <!-- show our formData as it is being typed -->
+    
     <pre>
-        {{ formData }}
+        {{ ruleData }}
     </pre>
 
   </ion-content>

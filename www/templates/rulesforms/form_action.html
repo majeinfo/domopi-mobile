@@ -1,27 +1,27 @@
 <!-- form-action.html -->
 ACTION
+<!-- form-action.html -->
 <div class="list">
 <div class="item item-divider">
-    Select a condition type
+    Select an action type
 </div>
 
 	<ion-list>
-	  <ion-radio name="conditiontype" ng-model="formData.conditiontype" ng-value="'thresholdcond'">Sensor Value Threshold</ion-radio>
-	  <ion-radio name="conditiontype" ng-model="formData.conditiontype" ng-value="'timecond'">Time condition</ion-radio>
-	  <ion-radio name="conditiontype" ng-model="formData.conditiontype" ng-value="'statuscond'">Sensor Status</ion-radio>
+	  <ion-radio name="actiontype" ng-model="action.actiontype" ng-value="'sensorcmd'">Sensor command</ion-radio>
+	  <ion-radio name="actiontype" ng-model="action.actiontype" ng-value="'emailcmd'">Email notification</ion-radio>
 	</ion-list>
 
 <div class="item item-divider">
-    Threshold condition settings
+    Sensor command action settings
 </div>
-	<ion-list ng-show="formData.conditiontype == 'thresholdcond'">
+	<ion-list ng-show="action.actiontype == 'sensorcmd'">
 		<div class="list">
 
 		  <label class="item item-input item-select">
 		    <div class="input-label">
 		      Sensor Name
 		    </div>
-		    <select ng-model="formData.sensor_name">
+		    <select ng-model="action.sensorname">
 		      <option>Sensor 1</option>
 		      <option selected>Sensor 2</option>
 		      <option>Sensor 3</option>
@@ -30,53 +30,50 @@ ACTION
 
 		</div>
 		<div class="list">
-		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'>'">></ion-radio>
-		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'=>'">=></ion-radio>
-		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'<'"><</ion-radio>
-		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'<='"><=</ion-radio>
-		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'='">=</ion-radio>
-		  <ion-radio name="testtype" ng-model="formData.testtype" ng-value="'<>'"><></ion-radio>
-
+		  <ion-radio name="value" ng-model="action.value" ng-value="'ON'">On</ion-radio>
+		  <ion-radio name="value" ng-model="action.value" ng-value="'OFF'">Off</ion-radio>
 		</div>
-		<label class="item item-input">
-		<span class="input-label">Value</span>
-		<input type="text" name="value" ng-model="formData.value" placeholder="enter the threshold value">
-		</label>
 
 	</ion-list>
 <div class="item item-divider">
-    Time condition settings
+    Email notification settings
 </div>
 
-	<ion-list ng-show="formData.conditiontype == 'timecond'">
+	<ion-list ng-show="action.actiontype == 'emailcmd'">
 		<label class="item item-input">
-		<span class="input-label">Start Time</span>
-		<input type="text" name="description" ng-model="formData.starttime" placeholder="enter the start date">
+		<span class="input-label">Email</span>
+		<input type="email" name="email" ng-model="action.email" placeholder="enter the destination email">
 		</label>
 		<label class="item item-input">
-		<span class="input-label">End Time</span>
-		<input type="text" name="description" ng-model="formData.endtime" placeholder="enter the end date">
+		<span class="input-label">Subject</span>
+		<input type="text" name="subject" ng-model="action.subject" placeholder="enter the subject">
 		</label>
-		<ion-list>
-
-		  <ion-checkbox ng-model="formData.alldays">Every day</ion-checkbox>
-		  <ion-checkbox ng-model="formData.monday">Monday</ion-checkbox>
-		  <ion-checkbox ng-model="formData.tuesday">Tuesday</ion-checkbox>
-		  <ion-checkbox ng-model="formData.wednesday">Wednesday</ion-checkbox>
-		  <ion-checkbox ng-model="formData.thursday">Thursday</ion-checkbox>
-		  <ion-checkbox ng-model="formData.friday">Friday</ion-checkbox>
-		  <ion-checkbox ng-model="formData.saturday">Saturday</ion-checkbox>
-		  <ion-checkbox ng-model="formData.sunday">Sunday</ion-checkbox>
-
-		</ion-list>
+		<label class="item item-input">
+		<span class="input-label">Message</span>
+		<input type="text" name="content" ng-model="action.content" placeholder="enter the message">
+		</label>
 	</ion-list>
-
+<button class="button button-block button-positive" ng-click="addaction($event)"> Add action</button>
 </div>
+
+<div class="item item-divider">
+    Actions list
+</div>
+
+    <ion-list>
+      <ion-item class="item-remove-animate " ng-repeat="action in actions" type="item-text-wrap">
+        {{action}}
+        <ion-option-button class="button-assertive" ng-click="removeaction(action)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="form.action" class="btn btn-block btn-info">
+    <a ui-sref="form.summary" class="btn btn-block btn-info">
     Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
     </a>
 </div>
 </div>
+

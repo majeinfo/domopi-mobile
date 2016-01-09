@@ -71,9 +71,19 @@
 	</ion-list>
 <button class="button button-block button-positive" ng-click="addcondition($event)"> Add condition</button>
 </div>
-    <pre>
-        {{ conditions }}
-    </pre>
+
+<div class="item item-divider">
+    Conditions list
+</div>
+
+    <ion-list>
+      <ion-item class="item-remove-animate " ng-repeat="cond in conditions" type="item-text-wrap">
+        {{cond}}
+        <ion-option-button class="button-assertive" ng-click="removecond(cond)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
