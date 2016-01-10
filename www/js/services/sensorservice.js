@@ -30,7 +30,9 @@ angular.module('domopi')
     this.remove = function(sensor) {
       sensors.splice(sensors.indexOf(sensor), 1);
     };
-
+    this.getall = function() {
+      return sensors;
+    }
     this.get = function(devid, instid, sid) {
       for (var i = 0; i < sensors.length; i++) {
         if (sensors[i].devid === (devid) && sensors[i].instid === (instid) && sensors[i].sid === (sid)) {

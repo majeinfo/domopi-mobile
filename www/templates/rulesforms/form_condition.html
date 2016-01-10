@@ -21,9 +21,7 @@
 		      Sensor Name
 		    </div>
 		    <select ng-model="condition.sensor_name">
-		      <option>Sensor 1</option>
-		      <option selected>Sensor 2</option>
-		      <option>Sensor 3</option>
+		     <option ng-repeat="sensor in sensors" value="{{sensor.devid}}-{{sensor.instid}}-{{sensor.sid}}">{{sensor.metrics.title}}</option>
 		    </select>
 		  </label>
 

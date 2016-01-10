@@ -34,6 +34,10 @@ angular.module('domopi')
     $scope.conditions = [];
     $scope.condition = {};
     $scope.action = {};
+    $scope.sensors = Rules.getallsensors();
+    $scope.rules = Rules.getall();
+    console.log('sensors in form');
+    console.log($scope.sensors);
 
     $scope.removeaction = function(action) {
       $scope.actions.splice($scope.actions.indexOf(action), 1);
@@ -135,8 +139,18 @@ angular.module('domopi')
       if (errors == ''){
         $scope.ruleData.actions = $scope.actions
         $scope.ruleData.conditions = $scope.conditions
-        //$scope.conditions.push($scope.condition);
-        $scope.showAlert('Rule', 'Rule successfully created');        
+        $scope.rules.push($scope.ruleData)
+        
+        Rules.setrules($scope.rules).success( function(response) {
+          console.log('callback rule settings');
+          console.log(response);
+          if (response.status == 'ok'){
+            //console.log('rule')
+            //Rules.set(response.rules);
+            $scope.showAlert('Rule', 'Rule successfully created');
+          }
+        });
+                
         
         //$scope.condition = {};
 
