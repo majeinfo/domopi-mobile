@@ -69,34 +69,38 @@ angular.module('domopi', ['ionic', 'domopi.controllers', 'domopi.services'])
       }
     })
 
-  .state('form', {
+  .state('tab.addruleform', {
       url: '/form',
-      templateUrl: 'templates/rulesforms/form.html',
-      controller: 'formController'
+      views: {
+        'tab-rules': {
+          templateUrl: 'templates/rulesforms/form.html',
+          controller: 'formController'
+        }
+      }
   })
 
   // nested states
   // each of these sections will have their own view
   // url will be nested (/form/profile)
-  .state('form.name', {
+  .state('tab.addruleform.name', {
       url: '/description',
       templateUrl: 'templates/rulesforms/form_name.html'
   })
 
   // url will be /form/interests
-  .state('form.condtype', {
+  .state('tab.addruleform.condtype', {
       url: '/condition',
       templateUrl: 'templates/rulesforms/form_condition.html'
   })
 
   // url will be /form/interests
-  .state('form.action', {
+  .state('tab.addruleform.action', {
       url: '/action',
       templateUrl: 'templates/rulesforms/form_action.html'
   })
 
   // form summary
-  .state('form.summary', {
+  .state('tab.addruleform.summary', {
       url: '/summary',
       templateUrl: 'templates/rulesforms/form_summary.html'
   })
