@@ -1,19 +1,19 @@
 <!-- form.html -->
 <ion-view view-title="AddRule">
   <ion-content class="padding">
-  This is the wizard to guide you throught the setps required to create a rule.
+  
     <div id="form-container">
 
         <div class="page-header text-center">
-            <h2>Steps</h2>
+            <h2>Steps to create a new rule</h2>
 
             <!-- the links to our nested states using relative paths -->
             <!-- add the active class if the state matches our ui-sref -->
-            <div id="status-buttons" class="text-center">
-                <a ui-sref-active="active" ui-sref=".name"><span>1</span> Name</a>
-                <a ui-sref-active="active" ui-sref=".condtype"><span>2</span> Condition</a>
-                <a ui-sref-active="active" ui-sref=".action"><span>3</span> Action</a>
-                <a ui-sref-active="active" ui-sref=".summary"><span>4</span> Summary</a>
+            <div id="status-buttons" class="button-bar bar-positive text-center">
+                <a class="button" ui-sref-active="active" ui-sref=".name"><span>1</span> Name</a>
+                <a class="button" ui-sref-active="active" ui-sref=".condtype"><span>2</span> Condition</a>
+                <a class="button" ui-sref-active="active" ui-sref=".action"><span>3</span> Action</a>
+                <a class="button" ui-sref-active="active" ui-sref=".summary"><span>4</span> Summary</a>
             </div>
         </div>
 

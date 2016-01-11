@@ -10,7 +10,7 @@
 	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'statuscond'">Sensor Status</ion-radio>
 	</ion-list>
 
-<div class="item item-divider">
+<div class="item item-divider" ng-show="condition.condtype == 'thresholdcond'">
     Threshold condition settings
 </div>
 	<ion-list ng-show="condition.condtype == 'thresholdcond'">
@@ -41,7 +41,7 @@
 		</label>
 
 	</ion-list>
-<div class="item item-divider">
+<div class="item item-divider" ng-show="condition.condtype == 'timecond'">
     Time condition settings
 </div>
 
@@ -85,8 +85,8 @@
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="form.action" class="btn btn-block btn-info">
-    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    <a ui-sref="tab.addruleform.action" class="button icon-right ion-chevron-right button-calm">
+    Next Section 
     </a>
 </div>
 </div>
