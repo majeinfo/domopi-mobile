@@ -20,10 +20,7 @@ angular.module('domopi')
   this.ping = function(url) {
     var rand = Math.floor((Math.random()*6)+1);
     console.log('pinging webservice : ' + url + '/controllers/ping/' + rand);
-    var data = $http.get(url + "/controllers/ping/" + rand)
-      .error(function(data) {
-          console.log('error');
-      });
+    var data = $http.get(url + "/controllers/ping/" + rand);
     //console.log(data);
     return data;
     };

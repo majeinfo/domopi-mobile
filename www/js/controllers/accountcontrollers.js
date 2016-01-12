@@ -1,7 +1,7 @@
 angular.module('domopi')
 
 .controller('AccountCtrl', function($scope, $ionicPopup, $stateParams, Account) {
-  $scope.message = 'SorryZZZ but we can not contact the web service.'
+  $scope.message = 'Sorry but we can not contact the web service.'
   $scope.showAlert = function(title, message) {
      var alertPopup = $ionicPopup.alert({
        title: title,
@@ -20,9 +20,14 @@ angular.module('domopi')
       console.log(response);
       data = response;
       $scope.message = (data.status == 'ok') ? 'Ok the web service url was successfully checked. Version : ' + data.doVersion : 'Sorry but we can not contact the web service.'
+      $scope.showAlert(title, $scope.message);
+    }).error(function(data) {
+          console.log('error');
+          $scope.message = 'Sorry but we can not contact the web service.'
+          $scope.showAlert(title, $scope.message);
+      });
 
-    });
-    $scope.showAlert(title, $scope.message);
+    
    };
   $scope.setsettings = function() {
     console.log('set settings called')
