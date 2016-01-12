@@ -26,6 +26,10 @@
     <ion-toggle  ng-model="settings.enableUpcoming" ng-click="setsettings()">
         Enable Upcoming
     </ion-toggle>
+    <div class="item item-divider">Switch Language</div>
+      <ion-radio name="language" ng-value="'fr'"  ng-click="switchLanguage('fr_FR')">Français</ion-radio>
+      <ion-radio name="language" ng-value="'en'"  ng-click="switchLanguage('en_US')">Anglais</ion-radio>
+
     </ion-list>
   </ion-content>
 </ion-view>

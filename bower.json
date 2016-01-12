@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-chart.js": "~0.8.8",
-    "angular-translate": "~2.8.1"
+    "angular-translate": "~2.8.1",
+    "angular-translate-loader-static-files": "~2.8.1"
   }
 }

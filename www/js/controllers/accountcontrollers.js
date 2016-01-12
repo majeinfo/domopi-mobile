@@ -1,6 +1,6 @@
 angular.module('domopi')
 
-.controller('AccountCtrl', function($scope, $ionicPopup, $stateParams, Account) {
+.controller('AccountCtrl', function($scope, $ionicPopup, $stateParams, $translate, Account) {
   $scope.message = 'Sorry but we can not contact the web service.'
   $scope.showAlert = function(title, message) {
      var alertPopup = $ionicPopup.alert({
@@ -33,6 +33,10 @@ angular.module('domopi')
     console.log('set settings called')
     Account.setsettings();
   };
+  $scope.switchLanguage = function(key) {
+    $translate.use(key);
+  };
+
 
 });
 
