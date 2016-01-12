@@ -1,6 +1,8 @@
 {
   "DASHBOARD_INTRO":              "This is your domopi dashboard.",
-  "MAIN_TEMPLATE_TITLE":         "Content",
+  "DASHBOARD_ALERTS":             "Recent alerts",
+  "DASHBOARD_HEALTH":             "Health",
+  "DASHBOARD_UPCOMING":           "Upcoming",
   "PREVIEW_TEMPLATE_TITLE":      "Preview",
   "EDITOR_TEMPLATE_TITLE":       "Editor",
 

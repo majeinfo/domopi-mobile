@@ -2,7 +2,7 @@
   <ion-content class="padding">
   <p translate="DASHBOARD_INTRO"></p>
     <div class="list card" ng-hide="!settings.enableAlerts">
-      <div class="item item-divider">Recent Alerts</div>
+      <div class="item item-divider" translate="DASHBOARD_ALERTS"></div>
       <div class="item item-body">
         <div>
           Rule <b>Trop chaud</b> threshold ...
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="list card" ng-hide="!settings.enableHealth">
-      <div class="item item-divider">Health</div>
+      <div class="item item-divider" translate="DASHBOARD_HEALTH"></div>
       <div class="item item-body">
         <div>
           All sensors are fine.
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="list card" ng-hide="!settings.enableUpcoming">
-      <div class="item item-divider">Upcoming</div>
+      <div class="item item-divider" translate="DASHBOARD_UPCOMING"></div>
       <div class="item item-body">
         <div>
         <canvas id="line" class="chart chart-line" chart-data="graph.data"

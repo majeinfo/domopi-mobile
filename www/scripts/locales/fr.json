@@ -1,6 +1,8 @@
 {
   "DASHBOARD_INTRO":              "Bienvenu sur le tableau de bord.",
-  "MAIN_TEMPLATE_TITLE":         "Content",
+  "DASHBOARD_ALERTS":             "Dernières alertes",
+  "DASHBOARD_HEALTH":             "Santé",
+  "DASHBOARD_UPCOMING":           "Prochainement",  
   "PREVIEW_TEMPLATE_TITLE":      "Preview",
   "EDITOR_TEMPLATE_TITLE":       "Editor",
 
