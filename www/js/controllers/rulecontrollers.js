@@ -168,9 +168,12 @@ angular.module('domopi')
   rules.sensors = [];
   rules.conditions.forEach( function(element, index, array){
     sensor = Rules.getconditionsensor(element.devid, element.instid, element.sid);
-    rules.sensors.push(sensor);
-    element.sensorname = sensor.metrics.title;
-    //console.log(element);
+    if (sensor != null){
+      rules.sensors.push(sensor);
+      element.sensorname = sensor.metrics.title;
+      //console.log(element);
+      
+    }
   });
   console.log(rules);
   $scope.rule = rules;
