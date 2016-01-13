@@ -1,13 +1,13 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-      <div class="item item-divider">Domopi controller key</div>
+      <div class="item item-divider" translate="SETTINGS_KEY"></div>
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
           <input type="text" ng-model="settings.rpiwkey" placeholder="enter your controller key">
         </label>
       </div>
-      <div class="item item-divider">Remote server url</div>
+      <div class="item item-divider" translate="SETTINGS_URL"></div>
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
           <input type="text" ng-model="settings.rpiwsurl" placeholder="Web service url">
@@ -16,7 +16,7 @@
           Check
         </button>
       </div>
-    <div class="item item-divider">Dashboard settings</div>
+    <div class="item item-divider" translate="SETTINGS_DASH"></div>
     <ion-toggle  ng-model="settings.enableAlerts" ng-click="setsettings()">
         Enable Recent Alerts
     </ion-toggle>
@@ -26,9 +26,9 @@
     <ion-toggle  ng-model="settings.enableUpcoming" ng-click="setsettings()">
         Enable Upcoming
     </ion-toggle>
-    <div class="item item-divider">Switch Language</div>
-      <ion-radio name="language" ng-value="'fr'"  ng-click="switchLanguage('fr_FR')">Français</ion-radio>
-      <ion-radio name="language" ng-value="'en'"  ng-click="switchLanguage('en_US')">Anglais</ion-radio>
+    <div class="item item-divider" translate="SETTINGS_LANG"></div>
+      <ion-radio name="settings.language" ng-value="'fr'"  ng-click="switchLanguage('fr_FR')">{{'FRENCH' | translate}}</ion-radio>
+      <ion-radio name="settings.language" ng-value="'en'"  ng-click="switchLanguage('en_US')">{{'ENGLISH' | translate}}</ion-radio>
 
     </ion-list>
   </ion-content>

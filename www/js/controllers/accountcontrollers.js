@@ -35,6 +35,7 @@ angular.module('domopi')
   };
   $scope.switchLanguage = function(key) {
     $translate.use(key);
+    Account.setsettings();
   };
 
 

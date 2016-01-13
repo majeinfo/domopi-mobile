@@ -1,4 +1,4 @@
-<ion-view view-title="Sensors">
+<ion-view view-title="{{'SENSORS' | translate}}">
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sensor in sensors" type="item-text-wrap" href="#/tab/sensors/{{sensor.devid}}/{{sensor.instid}}/{{sensor.sid}}">
@@ -13,15 +13,14 @@
 
 
 
-        <ion-option-button class="button-assertive" ng-click="remove(sensor)">
-          Delete
+        <ion-option-button class="button-assertive" ng-click="remove(sensor)" translate="DELETE">
         </ion-option-button>
       </ion-item>
     </ion-list>
     <div class="vertical-center-container" ng-show="!sensors.length">
       <div class="vertical-center text-center">
       <h1><i class="icon ion-heart-broken assertive"></i></h1>
-      <p>No sensor found.</p>
+      <p translate="NOSENSOR"></p>
       </div>
     </div>
   </ion-content>

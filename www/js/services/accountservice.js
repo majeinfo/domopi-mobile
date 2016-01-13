@@ -7,7 +7,8 @@ angular.module('domopi')
     enableHealth: true,
     enableUpcoming: true,
     rpiwsurl: 'http://localhost:3000',
-    rpikey: ''
+    rpikey: '',
+    language: 'en'
   }
   console.log('before');
   console.log(localstorage.getObject('settings'));

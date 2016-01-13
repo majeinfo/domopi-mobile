@@ -8,8 +8,7 @@
   <ion-content class="padding">
 
     <ion-list>
-      <ion-item class="item-divider">
-        Rule Conditions
+      <ion-item class="item-divider" translate="RULE_COND_TITLE">
       </ion-item>
 
       <ion-item class="item-remove-animate" ng-repeat="condition in rule.conditions" type="item-text-wrap" >
@@ -17,32 +16,31 @@
         <p>{{condition.condtype}} {{condition.testtype}} {{condition.value}}</p>
       </ion-item>
 
-      <ion-item class="item-divider">
-        Rule Actions
+      <ion-item class="item-divider" translate="RULE_ACTIONS_TITLE">
       </ion-item>
       <ion-item class="item-remove-animate" ng-repeat="action in rule.actions" type="item-text-wrap" >
 
         <div "emailcmd" ng-show="action.actiontype == 'emailcmd'">
-          <h2 class="item item-icon-left">Send email<i class="icon ion-email"></i></h2>
+          <h2 class="item item-icon-left">{{'RULE_ACTION_SENDEMAIL' | translate}}<i class="icon ion-email"></i></h2>
           <label class="item item-input item-stacked-label">
-            <span class="input-label">Email</span><input type="text" value="{{action.email}}">
+            <span class="input-label" translate="EMAIL"></span><input type="text" value="{{action.email}}">
           </label>
           <label class="item item-input item-stacked-label">
-            <span class="input-label">Subject</span><input type="text" value="{{action.subject}}">
+            <span class="input-label" translate="SUBJECT"></span><input type="text" value="{{action.subject}}">
           </label>
           <label class="item item-input item-stacked-label">
-            <span class="input-label">Message</span><input type="textarea" value="{{action.content}}">
+            <span class="input-label" translate="MESSAGE"></span><input type="textarea" value="{{action.content}}">
           </label>
         </div>
 
         <div "sensorcmd" class="item item-icon-left" ng-show="action.actiontype == 'sensorcmd'">
 
-          <h2 class="item item-icon-left">Send Command<i class="icon ion-radio-waves"></i></h2>
+          <h2 class="item item-icon-left">{{'RULE_ACTION_SENDCMD' | translate}}<i class="icon ion-radio-waves"></i></h2>
           <label class="item item-input item-stacked-label">
-            <span class="input-label">Sensor</span><input type="text" value="{{action.sensorname}}">
+            <span class="input-label" translate="SENSOR"></span><input type="text" value="{{action.sensorname}}">
           </label>
           <label class="item item-input item-stacked-label">
-            <span class="input-label">Command</span><input type="text" value="{{action.value}}">
+            <span class="input-label" translate="COMMAND"></span><input type="text" value="{{action.value}}">
           </label>
 
         </div>
