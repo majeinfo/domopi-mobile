@@ -1,24 +1,21 @@
 <!-- form-condition.html -->
 <div class="list">
-<div class="item item-divider">
-    Select a condition type
+<div class="item item-divider" translate="COND_TYPE">
 </div>
 
 	<ion-list>
-	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'thresholdcond'">Sensor Value Threshold</ion-radio>
-	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'timecond'">Time condition</ion-radio>
-	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'statuscond'">Sensor Status</ion-radio>
+	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'thresholdcond'">{{'THRESOLDCOND' | translate}}</ion-radio>
+	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'timecond'">{{'TIMECOND' | translate}}</ion-radio>
+	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'statuscond'">{{'STATUSCOND' | translate}}</ion-radio>
 	</ion-list>
 
-<div class="item item-divider" ng-show="condition.condtype == 'thresholdcond'">
-    Threshold condition settings
+<div class="item item-divider" ng-show="condition.condtype == 'thresholdcond'" translate="THRESOLDCONDTITLE">
 </div>
 	<ion-list ng-show="condition.condtype == 'thresholdcond'">
 		<div class="list">
 
 		  <label class="item item-input item-select">
-		    <div class="input-label">
-		      Sensor Name
+		    <div class="input-label" translate="SENSORNAME">
 		    </div>
 		    <select ng-model="condition.sensor_name">
 		     <option ng-repeat="sensor in sensors" value="{{sensor.devid}}-{{sensor.instid}}-{{sensor.sid}}">{{sensor.metrics.title}}</option>
@@ -36,42 +33,40 @@
 
 		</div>
 		<label class="item item-input">
-		<span class="input-label">Value</span>
-		<input type="text" name="value" ng-model="condition.value" placeholder="enter the threshold value">
+		<span class="input-label" translate="VALUE"></span>
+		<input type="text" name="value" ng-model="condition.value" placeholder="{{'THRESHOLDTXT' | translate}}">
 		</label>
 
 	</ion-list>
-<div class="item item-divider" ng-show="condition.condtype == 'timecond'">
-    Time condition settings
+<div class="item item-divider" ng-show="condition.condtype == 'timecond'" translate="TIMECONDTITLE">
 </div>
 
 	<ion-list ng-show="condition.condtype == 'timecond'">
 		<label class="item item-input">
-		<span class="input-label">Start Time</span>
-		<input type="text" name="description" ng-model="condition.starttime" placeholder="enter the start date">
+		<span class="input-label" translate="STARTTIME"></span>
+		<input type="text" name="description" ng-model="condition.starttime" placeholder="{{'STARTTIMETXT' | translate}}">
 		</label>
 		<label class="item item-input">
-		<span class="input-label">End Time</span>
-		<input type="text" name="description" ng-model="condition.endtime" placeholder="enter the end date">
+		<span class="input-label" translate="ENDTIME"></span>
+		<input type="text" name="description" ng-model="condition.endtime" placeholder="{{'ENDTIMETXT' | translate}}">
 		</label>
 		<ion-list>
 
-		  <ion-checkbox ng-model="condition.alldays">Every day</ion-checkbox>
-		  <ion-checkbox ng-model="condition.monday">Monday</ion-checkbox>
-		  <ion-checkbox ng-model="condition.tuesday">Tuesday</ion-checkbox>
-		  <ion-checkbox ng-model="condition.wednesday">Wednesday</ion-checkbox>
-		  <ion-checkbox ng-model="condition.thursday">Thursday</ion-checkbox>
-		  <ion-checkbox ng-model="condition.friday">Friday</ion-checkbox>
-		  <ion-checkbox ng-model="condition.saturday">Saturday</ion-checkbox>
-		  <ion-checkbox ng-model="condition.sunday">Sunday</ion-checkbox>
+		  <ion-checkbox ng-model="condition.alldays">{{'ALLDAYS' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.monday">{{'MONDAY' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.tuesday">{{'TUESDAY' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.wednesday">{{'WEDNESDAY' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.thursday">{{'THURSDAY' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.friday">{{'FRIDAY' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.saturday">{{'SATURDAY' | translate}}</ion-checkbox>
+		  <ion-checkbox ng-model="condition.sunday">{{'SUNDAY' | translate}}</ion-checkbox>
 
 		</ion-list>
 	</ion-list>
-<button class="button button-block button-positive" ng-click="addcondition($event)"> Add condition</button>
+<button class="button button-block button-positive" ng-click="addcondition($event)" translate="ADDCOND"></button>
 </div>
 
-<div class="item item-divider">
-    Conditions list
+<div class="item item-divider" translate="CONDLIST">
 </div>
 
     <ion-list>
@@ -85,8 +80,7 @@
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="tab.addruleform.action" class="button icon-right ion-chevron-right button-calm">
-    Next Section 
+    <a ui-sref="tab.addruleform.action" class="button icon-right ion-chevron-right button-calm" translate="NEXTBTN"> 
     </a>
 </div>
 </div>

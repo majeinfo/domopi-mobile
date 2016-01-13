@@ -13,6 +13,7 @@ angular.module('domopi')
      });
    };
   $scope.settings = Account.getsettings();
+  $translate.use($scope.settings.language)
   $scope.check = function(url) {
     var title = 'Web service check';
     var data;
