@@ -43,6 +43,8 @@
   "VALUE":                        "Valeur",
   "THRESHOLDTXT":                 "Saisir la valeur seuil",
   "TIMECONDTITLE":                "Paramètres de la condition horaire",
+  "STATUSCONDTITLE":              "Paramètres de la condition etat du capteur",
+
   "STARTTIME":                    "Date de début",
   "STARTTIMETXT":                 "saisir la date de début",
   "ENDTIME":                      "Date de fin",

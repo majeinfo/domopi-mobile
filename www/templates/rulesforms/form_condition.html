@@ -8,6 +8,27 @@
 	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'timecond'">{{'TIMECOND' | translate}}</ion-radio>
 	  <ion-radio name="conditiontype" ng-model="condition.condtype" ng-value="'statuscond'">{{'STATUSCOND' | translate}}</ion-radio>
 	</ion-list>
+<div class="item item-divider" ng-show="condition.condtype == 'statuscond'" translate="STATUSCONDTITLE">
+</div>
+	<ion-list ng-show="condition.condtype == 'statuscond'">
+		<div class="list">
+
+		  <label class="item item-input item-select">
+		    <div class="input-label" translate="SENSORNAME">
+		    </div>
+		    <select ng-model="condition.sensor_name">
+		     <option ng-repeat="sensor in sensors" value="{{sensor.devid}}-{{sensor.instid}}-{{sensor.sid}}">{{sensor.metrics.title}}</option>
+		    </select>
+		  </label>
+
+		</div>
+		<div class="list">
+		
+		<ion-toggle ng-model="condition.status" ng-checked="ON" toggle-class="toggle-calm">ON / OFF</ion-toggle>
+
+		</div>
+
+	</ion-list>
 
 <div class="item item-divider" ng-show="condition.condtype == 'thresholdcond'" translate="THRESOLDCONDTITLE">
 </div>
@@ -65,7 +86,7 @@
 	</ion-list>
 <button class="button button-block button-positive" ng-click="addcondition($event)" translate="ADDCOND"></button>
 </div>
-
+{{condition}}
 <div class="item item-divider" translate="CONDLIST">
 </div>
 
