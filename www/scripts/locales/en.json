@@ -58,7 +58,21 @@
   "SATURDAY":                     "Saturday",
   "SUNDAY":                       "Sunday",
   "ADDCOND":                      " Add condition",
-  "CONDLIST":                     "Conditions list"
+  "CONDLIST":                     "Conditions list",
+  "ACTION_TYPE":                  "Select an action type",
+  "SENSORCMD":                    "Sensor command",
+  "EMAILCMD":                     "Email notification",
+  "EMAILTXT":                     "enter the destination email",
+  "SUBJECTTXT":                   "enter the subject",
+  "MESSAGETXT":                   "enter the message",
+  "ADDACTION":                    " Add action",
+  "ACTIONLIST":                   "Actions list",
+  "SENSORCMDSETTINGS":            "Sensor command action settings",
+  "EMAILCMDSETTING":              "Email notification settings",
+  "RULESUMMARYTITLE":             "Please check your new rule settings below before posting it.",
+  "RULESUMMARYDESC":              "rule Description",
+  "RULESUMMARYCOND":              "rule Conditions list",
+  "RULESUMMARYACTION":            "rule Actions list"
 
 
 }

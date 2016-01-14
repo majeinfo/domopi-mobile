@@ -56,7 +56,27 @@
   "SATURDAY":                     "Samedi",
   "SUNDAY":                       "Dimanche",
   "ADDCOND":                      " Créer la condition",
-  "CONDLIST":                     "Liste des conditions"
+  "CONDLIST":                     "Liste des conditions",
+  "ACTION_TYPE":                  "Choisir le type d'action",
+  "SENSORCMD":                    "Envoyer une commande à un capteur",
+  "EMAILCMD":                     "Recevoir une notification par email",
+  "EMAILTXT":                     "saisir l'adresse email",
+  "SUBJECTTXT":                   "saisir l'objet du message",
+  "MESSAGETXT":                   "saisir le message",
+  "ADDACTION":                    " Ajouter une action",
+  "ACTIONLIST":                   "Liste des actions",
+  "SENSORCMDSETTINGS":            "Paramètres pour envoyer une commande à un capteur",
+  "EMAILCMDSETTING":              "Paramètres de l'envoie de notification par email",
+  "RULESUMMARYTITLE":             "Merci de vérifier les paramètres de votre nouvelle règle ci-dessous",
+  "RULESUMMARYDESC":              "Description de la règle",
+  "RULESUMMARYCOND":              "liste des conditions",
+  "RULESUMMARYACTION":            "liste des actions",
+  "ADDRULE":                      " Créer la règle"
+
+
+
+
+
 
 
 

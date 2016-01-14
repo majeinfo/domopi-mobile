@@ -1,25 +1,20 @@
 <!-- form-action.html -->
-ACTION
-<!-- form-action.html -->
 <div class="list">
-<div class="item item-divider">
-    Select an action type
+<div class="item item-divider" translate="ACTION_TYPE">
 </div>
 
 	<ion-list>
-	  <ion-radio name="actiontype" ng-model="action.actiontype" ng-value="'sensorcmd'">Sensor command</ion-radio>
-	  <ion-radio name="actiontype" ng-model="action.actiontype" ng-value="'emailcmd'">Email notification</ion-radio>
+	  <ion-radio name="actiontype" ng-model="action.actiontype" ng-value="'sensorcmd'">{{'SENSORCMD' | translate}}</ion-radio>
+	  <ion-radio name="actiontype" ng-model="action.actiontype" ng-value="'emailcmd'">{{'EMAILCMD' | translate}}</ion-radio>
 	</ion-list>
 
-<div class="item item-divider" ng-show="action.actiontype == 'sensorcmd'">
-    Sensor command action settings
+<div class="item item-divider" ng-show="action.actiontype == 'sensorcmd'" translate="SENSORCMDSETTINGS">
 </div>
 	<ion-list ng-show="action.actiontype == 'sensorcmd'">
 		<div class="list">
 
 		  <label class="item item-input item-select">
-		    <div class="input-label">
-		      Sensor Name
+		    <div class="input-label" translate="SENSORNAME">
 		    </div>
 		    <select ng-model="action.sensorname">
 			<option ng-repeat="sensor in sensors" value="{{sensor.devid}}-{{sensor.instid}}-{{sensor.sid}}">{{sensor.metrics.title}}</option></select>
@@ -32,44 +27,40 @@ ACTION
 		</div>
 
 	</ion-list>
-<div class="item item-divider" ng-show="action.actiontype == 'emailcmd'">
-    Email notification settings
+<div class="item item-divider" ng-show="action.actiontype == 'emailcmd'" translate="EMAILCMDSETTING">
 </div>
 
 	<ion-list ng-show="action.actiontype == 'emailcmd'">
 		<label class="item item-input">
-		<span class="input-label">Email</span>
-		<input type="email" name="email" ng-model="action.email" placeholder="enter the destination email">
+		<span class="input-label" translate="EMAIL"></span>
+		<input type="email" name="email" ng-model="action.email" placeholder="{{'EMAILTXT' | translate}}">
 		</label>
 		<label class="item item-input">
-		<span class="input-label">Subject</span>
-		<input type="text" name="subject" ng-model="action.subject" placeholder="enter the subject">
+		<span class="input-label" translate="SUBJECT"></span>
+		<input type="text" name="subject" ng-model="action.subject" placeholder="{{'SUBJECTTXT' | translate}}">
 		</label>
 		<label class="item item-input">
-		<span class="input-label">Message</span>
-		<input type="text" name="content" ng-model="action.content" placeholder="enter the message">
+		<span class="input-label" translate="MESSAGE"></span>
+		<input type="text" name="content" ng-model="action.content" placeholder="{{'MESSAGETXT' | translate}}">
 		</label>
 	</ion-list>
-<button class="button button-block button-positive" ng-click="addaction($event)"> Add action</button>
+<button class="button button-block button-positive" ng-click="addaction($event)" translate="ADDACTION"></button>
 </div>
 
-<div class="item item-divider">
-    Actions list
+<div class="item item-divider" translate="ACTIONLIST">
 </div>
 
     <ion-list>
       <ion-item class="item-remove-animate " ng-repeat="action in actions" type="item-text-wrap">
         {{action}}
-        <ion-option-button class="button-assertive" ng-click="removeaction(action)">
-          Delete
+        <ion-option-button class="button-assertive" ng-click="removeaction(action)" translate="DELETE">
         </ion-option-button>
       </ion-item>
     </ion-list>
 
 <div class="form-group row">
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="tab.addruleform.summary" class="button icon-right ion-chevron-right button-calm">
-    Next Section
+    <a ui-sref="tab.addruleform.summary" class="button icon-right ion-chevron-right button-calm" translate="NEXTBTN">
     </a>
 </div>
 </div>
