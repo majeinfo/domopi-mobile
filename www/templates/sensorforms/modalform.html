@@ -1,0 +1,25 @@
+<!-- form.html -->
+<ion-modal-view view-title="AddSensor">
+    <ion-header-bar>
+    <h1 class="title"> Sensor discover </h1>
+    </ion-header-bar>
+  <ion-content class="padding">
+  
+    <div id="form-container">
+
+        <div class="page-header text-center">
+            <h2 >Sensor detection</h2>
+
+            <!-- the links to our nested states using relative paths -->
+            <!-- add the active class if the state matches our ui-sref -->
+        <button class="button button-block button-positive" ng-click="discover($event, 'start')">Start</button>
+        <button class="button button-block button-positive" ng-click="discover($event, 'stop')">Stop</button>
+        <button class="button button-block button-positive" ng-click="discover($event, 'getnew')">Getnew</button>
+        {{ logs }}
+        </div>
+
+    </div>
+
+    
+  </ion-content>
+</ion-modal-view>

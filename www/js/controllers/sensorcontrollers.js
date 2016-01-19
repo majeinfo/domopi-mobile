@@ -1,6 +1,6 @@
 angular.module('domopi')
 
-.controller('SensorsCtrl', function($scope, Sensors) {
+.controller('SensorsCtrl', function($scope, $ionicModal, Sensors) {
   console.log($scope.sensors);
   Sensors.all().success( function(response){
     console.log('callback sensor');
@@ -8,6 +8,30 @@ angular.module('domopi')
       $scope.sensors = response.data;
       Sensors.set(response.data);
     }
+  });
+  $ionicModal.fromTemplateUrl('templates/sensorforms/modalform.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then( function(modal){
+    $scope.modal = modal;
+  });
+  $scope.openmodal = function() {
+    $scope.modal.show();
+  };
+  $scope.closemodal = function() {
+    $scope.modal.hide();
+  };
+  //destroy modal
+  $scope.$on('$destroy', function(){
+    $scope.modal.remove();
+  });
+  //Execute code on modal hide
+  $scope.$on('modal.hidden', function(){
+    //code on modal hide
+  });
+  //Execute code on modal remove
+  $scope.$on('modal.removed', function(){
+    //code on modal remove
   });
   //utile avec les données de test sinon le $scope.sensors n'est pas mis à jour
   $scope.$on('$ionicView.enter', function(e) {
@@ -30,17 +54,23 @@ angular.module('domopi')
 .controller('SensorDetailCtrl', function($scope, $stateParams, Sensors) {
   $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
 })
-.controller('sensorformController', function($scope, $stateParams, Sensors) {
+.controller('sensorformController', function($scope, $ionicLoading, $stateParams, Sensors) {
   $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
   $scope.discover = function(event, cmd) {
     event.preventDefault();
     if (cmd == 'start'){
+    $ionicLoading.show({
+      template: 'Checking ....'
+    });
+
       Sensors.discoveron().success( function(response){
         console.log('disconveron callback');
         console.log(response)
       });    
     }
     if (cmd == 'stop'){
+    $ionicLoading.hide();
+
       Sensors.discoveroff().success( function(response){
         console.log('disconveroff callback');
         console.log(response)
