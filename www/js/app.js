@@ -137,6 +137,16 @@ angular.module('domopi', ['ionic', 'pascalprecht.translate', 'domopi.controllers
       }
     })
 
+  .state('tab.addsensorform', {
+    url: '/discover',
+    views: {
+      'tab-sensors': {
+          templateUrl: 'templates/sensorforms/form.html',
+          controller: 'sensorformController'        
+      }
+    } 
+  })
+
   // url will be /form/payment
   .state('form.payment', {
       url: '/payment',

@@ -29,5 +29,30 @@ angular.module('domopi')
 })
 .controller('SensorDetailCtrl', function($scope, $stateParams, Sensors) {
   $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
+})
+.controller('sensorformController', function($scope, $stateParams, Sensors) {
+  $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
+  $scope.discover = function(event, cmd) {
+    event.preventDefault();
+    if (cmd == 'start'){
+      Sensors.discoveron().success( function(response){
+        console.log('disconveron callback');
+        console.log(response)
+      });    
+    }
+    if (cmd == 'stop'){
+      Sensors.discoveroff().success( function(response){
+        console.log('disconveroff callback');
+        console.log(response)
+      });      
+    }
+    if (cmd == 'getnew'){
+      Sensors.getnew().success( function(response){
+        console.log('getnew callback');
+        console.log(response)
+      });      
+    }
+
+  }
 });
 

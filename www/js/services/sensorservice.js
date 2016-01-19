@@ -56,5 +56,35 @@ angular.module('domopi')
       return command;
 
     };
+    this.discoveron = function() {
+      var cmd = 'start'
+      var data = $http.get(settings.rpiwsurl + "/controllers/discovery/" + cmd)
+        .error(function() {
+            console.log('error setting discovery on ');
+        });
+        // ajouter test data.status == 'ok'
+      return data;
+
+    };
+    this.discoveroff = function() {
+      var cmd = 'stop'
+      var data = $http.get(settings.rpiwsurl + "/controllers/discovery/" + cmd)
+        .error(function() {
+            console.log('error setting discovery off');
+        });
+        // ajouter test data.status == 'ok'
+      return data;
+
+    };
+    this.getnew = function(){
+      var cmd = 'getnew'
+      var data = $http.get(settings.rpiwsurl + "/controllers/discovery/" + cmd)
+        .error(function() {
+            console.log('error setting discovery getnew');
+        });
+        // ajouter test data.status == 'ok'
+      return data;
+
+    };
 
 });
