@@ -56,6 +56,32 @@ angular.module('domopi')
       return command;
 
     };
+    this.setexclusionmode = function(cmd) {
+      //start exclusion
+      var data = $http.get(settings.rpiwsurl + "/controllers/exclusion/" + cmd)
+        .error(function() {
+            console.log('error setting exclustion mode ' + cmd);
+        });
+        return data;
+    };
+
+    this.sensorexclusion = function() {
+      //start exclusion
+      var exclusion = this.setexclusionmode('start').success( function(response){
+        console.log('exclusion mode start ok');
+        //wait ??
+        //use a timer then call getold
+        old = this.setexclusionmode('getold').success( function(data){
+          console.log('get oldsensor');
+          this.setexclusionmode('stop').success( function(response){
+            console.log('exclusion mode stop ok');
+          });
+
+        });
+
+      });
+    };
+
     this.discoveron = function() {
       var cmd = 'start'
       var data = $http.get(settings.rpiwsurl + "/controllers/discovery/" + cmd)

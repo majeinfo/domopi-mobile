@@ -1,6 +1,8 @@
 angular.module('domopi')
 
 .controller('SensorsCtrl', function($scope, $ionicModal, Sensors) {
+  $scope.spinneroff = true;
+
   console.log($scope.sensors);
   Sensors.all().success( function(response){
     console.log('callback sensor');
@@ -9,6 +11,23 @@ angular.module('domopi')
       Sensors.set(response.data);
     }
   });
+  //utile avec les données de test sinon le $scope.sensors n'est pas mis à jour
+  $scope.$on('$ionicView.enter', function(e) {
+    console.log('updated');
+    $scope.sensors = Sensors.update();
+  });
+
+
+  $scope.sendcmd = function(sensor, cmd) {
+    console.log(cmd);
+    Sensors.cmd(sensor.devid, sensor.instid, sensor.sid, cmd).success( function(response){
+      console.log('command successfully executed');
+    });
+  };
+
+  $scope.remove = function(sensor) {
+    Sensors.remove(sensor);
+  };
   $ionicModal.fromTemplateUrl('templates/sensorforms/modalform.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -33,45 +52,27 @@ angular.module('domopi')
   $scope.$on('modal.removed', function(){
     //code on modal remove
   });
-  //utile avec les données de test sinon le $scope.sensors n'est pas mis à jour
-  $scope.$on('$ionicView.enter', function(e) {
-    console.log('updated');
-    $scope.sensors = Sensors.update();
-  });
+  $scope.exclusion = function(event, cmd) {
+    event.preventDefault();
+    Sensors.sensorexclusion().success( function(response){
+        //$scope.spinneroff = false;
+        console.log('sensorexclusion callback');
+        console.log(response)
+    });    
 
-
-  $scope.sendcmd = function(sensor, cmd) {
-    console.log(cmd);
-    Sensors.cmd(sensor.devid, sensor.instid, sensor.sid, cmd).success( function(response){
-      console.log('command successfully executed');
-    });
   };
-
-  $scope.remove = function(sensor) {
-    Sensors.remove(sensor);
-  };
-})
-.controller('SensorDetailCtrl', function($scope, $stateParams, Sensors) {
-  $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
-})
-.controller('sensorformController', function($scope, $ionicLoading, $stateParams, Sensors) {
-  $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
   $scope.discover = function(event, cmd) {
     event.preventDefault();
     if (cmd == 'start'){
-    $ionicLoading.show({
-      template: 'Checking ....'
-    });
-
       Sensors.discoveron().success( function(response){
+        $scope.spinneroff = false;
         console.log('disconveron callback');
         console.log(response)
       });    
     }
     if (cmd == 'stop'){
-    $ionicLoading.hide();
-
       Sensors.discoveroff().success( function(response){
+        $scope.spinneroff = true;
         console.log('disconveroff callback');
         console.log(response)
       });      
@@ -84,5 +85,12 @@ angular.module('domopi')
     }
 
   }
+
+})
+.controller('SensorDetailCtrl', function($scope, $stateParams, Sensors) {
+  $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
+})
+.controller('sensorformController', function($scope, $stateParams, Sensors) {
+  $scope.sensor = Sensors.get($stateParams.devid, $stateParams.instid, $stateParams.sid);
 });
 
