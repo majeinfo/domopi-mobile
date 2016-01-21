@@ -3,6 +3,9 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
+<ion-side-menus enable-menu-with-back-views="true">
+    <ion-side-menu-content>
+
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
   <!-- Dashboard Tab -->
@@ -23,7 +26,41 @@ navigation history that also transitions its views in and out.
   <!-- Account Tab -->
   <ion-tab title="{{'TABS_ACCOUNT_TITLE' | translate}}" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
+  <ion-side-menu side="left" is-enabled="true">
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">Theme22</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item nav-clear menu-close href="#/map/home" class="item item-icon-left" >
+          <i class="icon ion-ios7-ionic-outline"></i>Map
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/map/help" class="item item-icon-left" >
+          <i class="icon ion-ios7-help"></i>Help
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
   </ion-tab>
 
 
 </ion-tabs>
+</ion-side-menu-content>
+
+  <ion-side-menu side="left" is-enabled="true">
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">Theme</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item nav-clear menu-close href="#/map/home" class="item item-icon-left" >
+          <i class="icon ion-ios7-ionic-outline"></i>Map
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/map/help" class="item item-icon-left" >
+          <i class="icon ion-ios7-help"></i>Help
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
